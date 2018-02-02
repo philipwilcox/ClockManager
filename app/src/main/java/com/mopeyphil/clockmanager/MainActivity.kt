@@ -13,8 +13,9 @@ class MainActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var alarmManager = applicationContext.getSystemService(Context.ALARM_SERVICE);
-        var nextAlarm = (alarmManager as AlarmManager).nextAlarmClock
+        // TODO add neater error handling if this is null somehow
+        val alarmManager = (applicationContext.getSystemService(Context.ALARM_SERVICE)) as AlarmManager
+        var nextAlarm = alarmManager.nextAlarmClock
         Log.e("AlarmManager: ", "$nextAlarm")
         nextAlarm?.let {
             var alarmString = DateUtils.formatDateTime(applicationContext, it.triggerTime,
