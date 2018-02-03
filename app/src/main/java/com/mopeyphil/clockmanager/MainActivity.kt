@@ -4,8 +4,6 @@ import android.app.Activity
 import android.os.Bundle
 import android.app.AlarmManager
 import android.content.Context
-import android.content.Intent
-import android.provider.AlarmClock
 import android.text.format.DateUtils
 import android.util.Log
 
@@ -24,21 +22,6 @@ class MainActivity : Activity() {
                     DateUtils.FORMAT_SHOW_DATE or DateUtils.FORMAT_SHOW_TIME)
             Log.e("AlarmManager", "Next alarm will trigger at $alarmString")
         }
-        showTimers()
-    }
 
-    fun showTimers() {
-        val intent = Intent(AlarmClock.ACTION_SHOW_TIMERS)
-        startActivityForResult(intent, 3)
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        // Check which request we're responding to
-        if (requestCode == 3) {
-            // Make sure the request was successful
-            if (resultCode == Activity.RESULT_OK) {
-                Log.e("QuickTimer", "$data")
-            }
-        }
     }
 }
