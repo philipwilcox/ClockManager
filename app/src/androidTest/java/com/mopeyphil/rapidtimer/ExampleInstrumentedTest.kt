@@ -1,4 +1,4 @@
-package com.mopeyphil.clockmanager
+package com.mopeyphil.rapidtimer
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4

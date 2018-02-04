@@ -1,4 +1,4 @@
-package com.mopeyphil.clockmanager
+package com.mopeyphil.rapidtimer
 
 import org.junit.Test
 
