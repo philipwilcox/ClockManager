@@ -12,6 +12,6 @@ class TimerListWidgetService : RemoteViewsService() {
 
     override fun onGetViewFactory(intent: Intent) : RemoteViewsFactory {
         Log.e("RapidTimer", "Context in TimerLIstWidgetService is ${this.applicationContext}")
-        return TimerListWidgetFactory(this.applicationContext, intent)
+        return TimerListWidgetFactory(this.applicationContext)
     }
 }

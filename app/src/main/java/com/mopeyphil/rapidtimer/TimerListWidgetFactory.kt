@@ -7,20 +7,22 @@ import android.util.Log
 import android.widget.RemoteViews
 import android.widget.RemoteViewsService
 
-class TimerListWidgetFactory(val context: Context, val intent: Intent) : RemoteViewsService.RemoteViewsFactory {
+class TimerListWidgetFactory(val context: Context) : RemoteViewsService.RemoteViewsFactory {
+    // TODO: eventually this will call out to (a) stopped timers living in stored data service that
+    // can be updated through app - some sort of UpdateDataService - or running timers living in
+    // another service or such?
+
     init {
         Log.e("RapidTimer", "initializing TimerListWidgetFactory")
     }
 
     override fun onCreate() {
         Log.e("RapidTimer", "onCreate, Context is $context")
-
-        //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun getLoadingView(): RemoteViews {
+    override fun getLoadingView(): RemoteViews? {
         Log.e("RapidTimer", "getLoadingView")
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return null;
     }
 
     override fun getItemId(position: Int): Long {
