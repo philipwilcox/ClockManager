@@ -1,7 +1,6 @@
 package com.mopeyphil.rapidtimer
 
 import android.content.Context
-import android.content.Intent
 import android.icu.util.Calendar
 import android.util.Log
 import android.widget.RemoteViews
