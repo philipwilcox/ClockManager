@@ -3,6 +3,7 @@ package com.mopeyphil.rapidtimer
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.widget.ListView
 import android.widget.RemoteViews
@@ -20,9 +21,8 @@ class RapidTimerWidgetProvider : AppWidgetProvider() {
     override fun onUpdate(context: Context, appWidgetManager : AppWidgetManager, appWidgetIds: IntArray) {
         super.onUpdate(context, appWidgetManager, appWidgetIds)
         val remoteViews = RemoteViews(context.packageName, R.layout.widget_main)
-        // TODO: hit another layer of indirection here, https://developer.android.com/reference/android/widget/RemoteViews.html#setRemoteAdapter(int,%20android.content.Intent)
-        // I need an Intent to point to a service for the adapter
-        //remoteViews.setRemoteAdapter(R.id.widgetList, null)
+        val intent = Intent(context, TimerListWidgetService::class.java)
+        remoteViews.setRemoteAdapter(R.id.widgetList, intent)
         Log.e("RapidTimer", "widget updated!")
     }
 }
