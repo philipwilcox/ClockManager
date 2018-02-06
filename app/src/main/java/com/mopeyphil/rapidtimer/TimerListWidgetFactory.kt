@@ -44,13 +44,13 @@ class TimerListWidgetFactory(val context: Context) : RemoteViewsService.RemoteVi
         val remoteViews = RemoteViews(context.packageName, R.layout.widget_timer_item)
 
         val calendar = Calendar.getInstance()
-        remoteViews.setTextViewText(R.id.timerText, "${calendar.timeInMillis}")
+        remoteViews.setTextViewText(R.id.timerText, "${position} - ${calendar.timeInMillis % 100}")
         return remoteViews
     }
 
     override fun getCount(): Int {
         Log.e("RapidTimer", "getCount")
-        return 1;
+        return 2;
     }
 
     override fun getViewTypeCount(): Int {
