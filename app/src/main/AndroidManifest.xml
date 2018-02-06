@@ -24,6 +24,9 @@
             <meta-data android:name="android.appwidget.provider"
                 android:resource="@xml/rapidtimer_widget_info" />
         </receiver>
+
+        <service android:name=".TimerListWidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
     </application>
 
 </manifest>
