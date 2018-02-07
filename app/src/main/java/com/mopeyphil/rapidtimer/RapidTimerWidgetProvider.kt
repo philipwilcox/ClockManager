@@ -39,13 +39,8 @@ class RapidTimerWidgetProvider : AppWidgetProvider() {
     }
 
     private fun dataUpdater(context: Context, appWidgetManager: AppWidgetManager, appWidgetId: Int) {
-
         // TODO This still feels a bit weird in terms of views:appWidgetIds mapping, need to better understand
         val remoteViews = RemoteViews(context.packageName, R.layout.widget_main)
-
-        // Let's see if this has effect, at least:
-        remoteViews.setTextColor(R.id.widgetText, Color.RED)
-
         val intent = Intent(context, TimerListWidgetService::class.java)
         intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
         intent.data = Uri.parse(intent.toUri(Intent.URI_INTENT_SCHEME)) // seems to not affect anything, cargo-culted in examples?

@@ -3,13 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <TextView android:id="@+id/widgetText"
+    <GridView
+        android:id="@+id/widgetList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="oh hai" />
-    <ListView android:id="@+id/widgetList"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:columnWidth="60dp"
+        android:verticalSpacing="0dp"
+        android:horizontalSpacing="0dp"
+        android:numColumns="auto_fit"
+        />
     <TextView android:id="@+id/widgetEmptyText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -49,7 +49,7 @@ class TimerListWidgetFactory(val context: Context) : RemoteViewsService.RemoteVi
 
     override fun getCount(): Int {
         Log.e("RapidTimer", "getCount")
-        return 2;
+        return 3;
     }
 
     override fun getViewTypeCount(): Int {
