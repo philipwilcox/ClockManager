@@ -13,7 +13,7 @@ class TimerUnitTest {
 
     @Test
     fun start_a_new_timer() {
-        val timer = Timer(5000, calendar)
+        val timer = Timer(5000, "", calendar)
         Mockito.`when`(calendar.timeInMillis).thenReturn(10000)
         timer.start()
         assertEquals(timer.duration, 5000)
@@ -24,7 +24,7 @@ class TimerUnitTest {
 
     @Test
     fun pause_a_running_timer() {
-        val timer = Timer(5000, calendar)
+        val timer = Timer(5000, "", calendar)
         Mockito.`when`(calendar.timeInMillis).thenReturn(10000)
         timer.start()
         // Pretend 2.5s went by
@@ -40,7 +40,7 @@ class TimerUnitTest {
 
     @Test
     fun remaining_for_running_timer() {
-        val timer = Timer(5000, calendar)
+        val timer = Timer(5000, "", calendar)
         Mockito.`when`(calendar.timeInMillis).thenReturn(10000)
         timer.start()
         // Pretend 3.5s went by
@@ -53,7 +53,7 @@ class TimerUnitTest {
 
     @Test
     fun remaining_for_paused_timer() {
-        val timer = Timer(5000, calendar)
+        val timer = Timer(5000, "", calendar)
         Mockito.`when`(calendar.timeInMillis).thenReturn(10000)
         timer.start()
         // Pretend 2.5s went by
@@ -72,7 +72,7 @@ class TimerUnitTest {
 
     @Test
     fun start_a_paused_timer() {
-        val timer = Timer(5000, calendar)
+        val timer = Timer(5000, "", calendar)
         Mockito.`when`(calendar.timeInMillis).thenReturn(10000)
         timer.start()
         // Pretend 3.5s went by
@@ -91,7 +91,7 @@ class TimerUnitTest {
 
     @Test
     fun reset_a_timer() {
-        val timer = Timer(5000, calendar)
+        val timer = Timer(5000, "", calendar)
         Mockito.`when`(calendar.timeInMillis).thenReturn(10000)
         timer.start()
         // Pretend 3.5s went by
@@ -110,7 +110,7 @@ class TimerUnitTest {
 
     @Test
     fun start_a_reset_timer() {
-        val timer = Timer(5000, calendar)
+        val timer = Timer(5000, "", calendar)
         Mockito.`when`(calendar.timeInMillis).thenReturn(10000)
         timer.start()
         // Pretend 3.5s went by

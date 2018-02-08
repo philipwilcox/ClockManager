@@ -1,7 +1,6 @@
 package com.mopeyphil.rapidtimer
 
 import android.content.Context
-import android.icu.util.Calendar
 import android.util.Log
 import android.widget.RemoteViews
 import android.widget.RemoteViewsService
@@ -36,17 +35,23 @@ class TimerListWidgetFactory(val context: Context, val columns: Int) : RemoteVie
 
     override fun getViewAt(position: Int): RemoteViews {
         Log.e("RapidTimer", "getViewAt")
+        val timer = DummyTimerData.getTimer(position)
         val remoteViews = RemoteViews(context.packageName, R.layout.widget_timer_item)
+        remoteViews.setTextViewText(R.id.timerText, "${timer.name}")
 
-        val calendar = Calendar.getInstance()
-        remoteViews.setTextViewText(R.id.timerText, "# ${position}")
+        // TODO Make a helper for this with minute formatting, somewhere - inside Timer, probably
+        remoteViews.setTextViewText(R.id.timerDuration, "${timer.duration}")
         return remoteViews
     }
 
     override fun getCount(): Int {
         Log.e("RapidTimer", "getCount")
-        // TODO eventually this would get smaller of columns or num stored timers
-        return columns;
+        val numTimers = DummyTimerData.getCount()
+        if (columns < numTimers) {
+            return columns
+        } else {
+            return numTimers
+        }
     }
 
     override fun getViewTypeCount(): Int {

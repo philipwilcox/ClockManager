@@ -6,7 +6,7 @@ import android.icu.util.Calendar
  * This represents a timer, either running or not. It's more than a data class since interactions
  * with it will gneerally be using the start/pause/reset methods.
  */
-class Timer(var duration: Long, val calendar : Calendar = Calendar.getInstance()) {
+class Timer(var duration: Long, var name: String = "", private val calendar: Calendar = Calendar.getInstance()) {
     var state = TimerState.STOPPED
     internal var startedAt : Long = 0
     internal var elapsed : Long = 0

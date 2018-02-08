@@ -6,6 +6,7 @@ import android.app.AlarmManager
 import android.content.Context
 import android.text.format.DateUtils
 import android.util.Log
+import kotlinx.android.synthetic.main.widget_main.*
 
 class MainActivity : Activity() {
 
@@ -23,5 +24,7 @@ class MainActivity : Activity() {
             Log.e("AlarmManager", "Next alarm will trigger at $alarmString")
         }
 
+        val columns = 3
+        widgetList.adapter = TimerArrayAdapter(applicationContext, DummyTimerData.myTimers)
     }
 }
