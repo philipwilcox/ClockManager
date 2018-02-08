@@ -6,14 +6,10 @@ import android.util.Log
 import android.widget.RemoteViews
 import android.widget.RemoteViewsService
 
-class TimerListWidgetFactory(val context: Context) : RemoteViewsService.RemoteViewsFactory {
+class TimerListWidgetFactory(val context: Context, val columns: Int) : RemoteViewsService.RemoteViewsFactory {
     // TODO: eventually this will call out to (a) stopped timers living in stored data service that
     // can be updated through app - some sort of UpdateDataService - or running timers living in
     // another service or such?
-
-    init {
-        Log.e("RapidTimer", "initializing TimerListWidgetFactory")
-    }
 
     override fun onCreate() {
         Log.e("RapidTimer", "onCreate, Context is $context")
@@ -43,13 +39,14 @@ class TimerListWidgetFactory(val context: Context) : RemoteViewsService.RemoteVi
         val remoteViews = RemoteViews(context.packageName, R.layout.widget_timer_item)
 
         val calendar = Calendar.getInstance()
-        remoteViews.setTextViewText(R.id.timerText, "${position} - ${calendar.timeInMillis % 100}")
+        remoteViews.setTextViewText(R.id.timerText, "# ${position}")
         return remoteViews
     }
 
     override fun getCount(): Int {
         Log.e("RapidTimer", "getCount")
-        return 3;
+        // TODO eventually this would get smaller of columns or num stored timers
+        return columns;
     }
 
     override fun getViewTypeCount(): Int {
